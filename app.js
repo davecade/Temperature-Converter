@@ -15,7 +15,7 @@ function convertCelsius(celsius) {
 
 function convertFarenheit(fahrenheit) {
     const fTemp = parseFloat(fahrenheit)
-    if (cTemp<0 || cTemp>=0) {
+    if (fTemp<0 || fTemp>=0) {
         celsius_div.value = "";
         kelvin_div.value = "";
         celsius_div.placeholder = `${(((fTemp-32)*(5/9))).toFixed(2)} °C`
@@ -25,7 +25,7 @@ function convertFarenheit(fahrenheit) {
 
 function convertKelvin(kelvin) {
     const kTemp = parseFloat(kelvin)
-    if (cTemp<0 || cTemp>=0) {
+    if (kTemp<0 || kTemp>=0) {
         fahrenheit_div.value = "";
         celsius_div.value = "";
         fahrenheit_div.placeholder = `${(((kTemp-273.15)*(9/5) + 32)).toFixed(2)} °F`
