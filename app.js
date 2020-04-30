@@ -5,7 +5,7 @@ const kelvin_div = document.getElementById('kelvin-input')
 function convertCelsius(celsius) {
     const cTemp = parseFloat(celsius)
     console.log(typeof(cTemp))
-    if (typeof(cTemp) === 'number') {
+    if (cTemp<0 || cTemp>=0) {
         fahrenheit_div.value = "";
         kelvin_div.value = "";
         fahrenheit_div.placeholder = `${((cTemp*(9/5))+32).toFixed(2)} °F`;
@@ -15,24 +15,28 @@ function convertCelsius(celsius) {
 
 function convertFarenheit(fahrenheit) {
     const fTemp = parseFloat(fahrenheit)
-    celsius_div.value = "";
-    kelvin_div.value = "";
-    celsius_div.placeholder = `${(((fTemp-32)*(5/9))).toFixed(2)} °C`
-    kelvin_div.placeholder = `${((fTemp-32)*(5/9) + 273.15).toFixed(2)} °K`;
+    if (cTemp<0 || cTemp>=0) {
+        celsius_div.value = "";
+        kelvin_div.value = "";
+        celsius_div.placeholder = `${(((fTemp-32)*(5/9))).toFixed(2)} °C`
+        kelvin_div.placeholder = `${((fTemp-32)*(5/9) + 273.15).toFixed(2)} °K`;
+    } else reset();
 }
 
 function convertKelvin(kelvin) {
     const kTemp = parseFloat(kelvin)
-    fahrenheit_div.value = "";
-    celsius_div.value = "";
-    fahrenheit_div.placeholder = `${(((kTemp-273.15)*(9/5) + 32)).toFixed(2)} °F`
-    celsius_div.placeholder = `${(kTemp-273.15).toFixed(2)} °C`;
+    if (cTemp<0 || cTemp>=0) {
+        fahrenheit_div.value = "";
+        celsius_div.value = "";
+        fahrenheit_div.placeholder = `${(((kTemp-273.15)*(9/5) + 32)).toFixed(2)} °F`
+        celsius_div.placeholder = `${(kTemp-273.15).toFixed(2)} °C`;
+    } else reset();
 }
 
 function reset(){
-    celsius_div.placeholder = 'Celsius...'
-    fahrenheit_div.placeholder = 'Fahrenheit...'
-    kelvin_div.placeholder = 'Kelvin...'
+    celsius_div.placeholder = 'Celsius...';
+    fahrenheit_div.placeholder = 'Fahrenheit...';
+    kelvin_div.placeholder = 'Kelvin...';
 }
 
 function main() {
